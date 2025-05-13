@@ -1,0 +1,28 @@
+{
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "vscode.typescript-language-features",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit",
+    "source.sortMembers": "explicit",
+    "quickfix.biome": "explicit"
+  },
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "[dotenv]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "cSpell.language": "en,pt-br"
+}
