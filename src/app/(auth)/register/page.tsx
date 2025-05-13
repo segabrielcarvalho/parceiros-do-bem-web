@@ -9,45 +9,45 @@ import { Strong, Text, TextLink } from '@/components/text'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Register',
+  title: 'Cadastro',
 }
 
 export default function Login() {
   return (
     <form action="" method="POST" className="grid w-full max-w-sm grid-cols-1 gap-8">
       <Logo className="h-6 text-zinc-950 dark:text-white forced-colors:text-[CanvasText]" />
-      <Heading>Create your account</Heading>
+      <Heading>Crie sua conta</Heading>
       <Field>
         <Label>Email</Label>
         <Input type="email" name="email" />
       </Field>
       <Field>
-        <Label>Full name</Label>
+        <Label>Nome completo</Label>
         <Input name="name" />
       </Field>
       <Field>
-        <Label>Password</Label>
+        <Label>Senha</Label>
         <Input type="password" name="password" autoComplete="new-password" />
       </Field>
       <Field>
-        <Label>Country</Label>
+        <Label>País</Label>
         <Select name="country">
-          <option>Canada</option>
-          <option>Mexico</option>
-          <option>United States</option>
+          <option>Canadá</option>
+          <option>México</option>
+          <option>Estados Unidos</option>
         </Select>
       </Field>
       <CheckboxField>
         <Checkbox name="remember" />
-        <Label>Get emails about product updates and news.</Label>
+        <Label>Receber e-mails sobre atualizações e novidades.</Label>
       </CheckboxField>
       <Button type="submit" className="w-full">
-        Create account
+        Criar conta
       </Button>
       <Text>
-        Already have an account?{' '}
+        Já tem uma conta?{' '}
         <TextLink href="/login">
-          <Strong>Sign in</Strong>
+          <Strong>Entrar</Strong>
         </TextLink>
       </Text>
     </form>

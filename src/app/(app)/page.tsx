@@ -2,56 +2,72 @@ import { Stat } from '@/app/stat'
 import { Avatar } from '@/components/avatar'
 import { Heading, Subheading } from '@/components/heading'
 import { Select } from '@/components/select'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/table'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/table'
 import { getRecentOrders } from '@/data'
 
 export default async function Home() {
-  let orders = await getRecentOrders()
+  const volunteers = await getRecentOrders()
 
   return (
     <>
-      <Heading>Good afternoon, Erica</Heading>
+      <Heading>Boa tarde, Érica</Heading>
+
       <div className="mt-8 flex items-end justify-between">
-        <Subheading>Overview</Subheading>
+        <Subheading>Visão geral</Subheading>
         <div>
           <Select name="period">
-            <option value="last_week">Last week</option>
-            <option value="last_two">Last two weeks</option>
-            <option value="last_month">Last month</option>
-            <option value="last_quarter">Last quarter</option>
+            <option value="last_week">Última semana</option>
+            <option value="last_two">Últimas duas semanas</option>
+            <option value="last_month">Último mês</option>
+            <option value="last_quarter">Último trimestre</option>
           </Select>
         </div>
       </div>
+
       <div className="mt-4 grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
-        <Stat title="Total revenue" value="$2.6M" change="+4.5%" />
-        <Stat title="Average order value" value="$455" change="-0.5%" />
-        <Stat title="Tickets sold" value="5,888" change="+4.5%" />
-        <Stat title="Pageviews" value="823,067" change="+21.2%" />
+        <Stat title="Voluntários cadastrados" value="5.888" change="+4,5%" />
+        <Stat title="Eventos ativos" value="12" change="+1,0%" />
+        <Stat title="Vagas disponíveis" value="1.342" change="-2,1%" />
+        <Stat title="Visualizações de página" value="823.067" change="+21,2%" />
       </div>
-      <Subheading className="mt-14">Recent orders</Subheading>
+
+      <Subheading className="mt-14">Cadastros recentes</Subheading>
       <Table className="mt-4 [--gutter:--spacing(6)] lg:[--gutter:--spacing(10)]">
         <TableHead>
           <TableRow>
-            <TableHeader>Order number</TableHeader>
-            <TableHeader>Purchase date</TableHeader>
-            <TableHeader>Customer</TableHeader>
-            <TableHeader>Event</TableHeader>
-            <TableHeader className="text-right">Amount</TableHeader>
+            <TableHeader>Número do cadastro</TableHeader>
+            <TableHeader>Data de inscrição</TableHeader>
+            <TableHeader>Voluntário</TableHeader>
+            <TableHeader>Evento</TableHeader>
+            <TableHeader className="text-right">Horas Trabalhadas</TableHeader>
           </TableRow>
         </TableHead>
         <TableBody>
-          {orders.map((order) => (
-            <TableRow key={order.id} href={order.url} title={`Order #${order.id}`}>
-              <TableCell>{order.id}</TableCell>
-              <TableCell className="text-zinc-500">{order.date}</TableCell>
-              <TableCell>{order.customer.name}</TableCell>
+          {volunteers.map((volunteers) => (
+            <TableRow
+              key={volunteers.id}
+              href={volunteers.url}
+              title={`Cadastro #${volunteers.id}`}
+            >
+              <TableCell>{volunteers.id}</TableCell>
+              <TableCell className="text-zinc-500">{volunteers.date}</TableCell>
+              <TableCell>{volunteers.customer.name}</TableCell>
               <TableCell>
                 <div className="flex items-center gap-2">
-                  <Avatar src={order.event.thumbUrl} className="size-6" />
-                  <span>{order.event.name}</span>
+                  <Avatar src={volunteers.event.thumbUrl} className="size-6" />
+                  <span>{volunteers.event.name}</span>
                 </div>
               </TableCell>
-              <TableCell className="text-right">US{order.amount.usd}</TableCell>
+              <TableCell className="text-right">
+                {volunteers.amount.usd} Horas
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -21,24 +21,24 @@ export default async function Events() {
     <>
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="max-sm:w-full sm:flex-1">
-          <Heading>Events</Heading>
+          <Heading>Eventos</Heading>
           <div className="mt-4 flex max-w-xl gap-4">
             <div className="flex-1">
               <InputGroup>
                 <MagnifyingGlassIcon />
-                <Input name="search" placeholder="Search events&hellip;" />
+                <Input name="search" placeholder="Procurar Eventos&hellip;" />
               </InputGroup>
             </div>
             <div>
               <Select name="sort_by">
-                <option value="name">Sort by name</option>
-                <option value="date">Sort by date</option>
-                <option value="status">Sort by status</option>
+                <option value="name">Ordenar por nome</option>
+                <option value="date">Ordenar por data</option>
+                <option value="status">Ordenar por status</option>
               </Select>
             </div>
           </div>
         </div>
-        <Button>Create event</Button>
+        <Button>Criar Evento</Button>
       </div>
       <ul className="mt-10">
         {events.map((event, index) => (
@@ -56,31 +56,32 @@ export default async function Events() {
                     <Link href={event.url}>{event.name}</Link>
                   </div>
                   <div className="text-xs/6 text-zinc-500">
-                    {event.date} at {event.time} <span aria-hidden="true">·</span> {event.location}
+                    {event.date} às {event.time} <span aria-hidden="true">·</span> {event.location}
                   </div>
                   <div className="text-xs/6 text-zinc-600">
-                    {event.ticketsSold}/{event.ticketsAvailable} tickets sold
+                    {event.ticketsSold}/{event.ticketsAvailable} ingressos
                   </div>
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <Badge className="max-sm:hidden" color={event.status === 'On Sale' ? 'lime' : 'zinc'}>
-                  {event.status}
+                <Badge className="max-sm:hidden" color={event.status === 'À venda' ? 'lime' : 'zinc'}>
+                  {event.status === 'À venda' ? 'Aberto para cadastro' : 'Encerrado'}
                 </Badge>
                 <Dropdown>
-                  <DropdownButton plain aria-label="More options">
+                  <DropdownButton plain aria-label="Mais opções">
                     <EllipsisVerticalIcon />
                   </DropdownButton>
                   <DropdownMenu anchor="bottom end">
-                    <DropdownItem href={event.url}>View</DropdownItem>
-                    <DropdownItem>Edit</DropdownItem>
-                    <DropdownItem>Delete</DropdownItem>
+                    <DropdownItem href={event.url}>Visualizar</DropdownItem>
+                    <DropdownItem>Editar</DropdownItem>
+                    <DropdownItem>Excluir</DropdownItem>
                   </DropdownMenu>
                 </Dropdown>
               </div>
             </div>
           </li>
         ))}
+
       </ul>
     </>
   )
