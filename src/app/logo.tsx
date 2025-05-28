@@ -5,7 +5,7 @@ export function Logo({
   return (
     <span
       {...rest}
-      className={`inline-block text-xl font-semibold tracking-tight text-zinc-900 dark:text-white ${className}`}
+      className={`inline-block text-xl font-semibold tracking-tight text-zinc-900 ${className}`}
     >
       Parceiros&nbsp;do&nbsp;Bem
     </span>

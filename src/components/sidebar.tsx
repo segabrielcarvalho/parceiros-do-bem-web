@@ -93,17 +93,18 @@ export const SidebarItem = forwardRef(function SidebarItem(
     // Avatar
     '*:data-[slot=avatar]:-m-0.5 *:data-[slot=avatar]:size-7 sm:*:data-[slot=avatar]:size-6',
     // Hover
-    'data-hover:bg-zinc-950/5 data-hover:*:data-[slot=icon]:fill-zinc-950',
+    'data-hover:bg-zinc-950/5 data-hover:*:data-[slot=icon]:fill-rose-600 data-hover:text-rose-600',
     // Active
-    'data-active:bg-zinc-950/5 data-active:*:data-[slot=icon]:fill-zinc-950',
+    'data-active:bg-rose-600/5 data-active:*:data-[slot=icon]:fill-rose-600 data-active:text-rose-600',
     // Current
-    'data-current:*:data-[slot=icon]:fill-zinc-950',
+    'data-current:*:data-[slot=icon]:fill-rose-600 data-current:text-rose-600',
     // Dark mode
-    'dark:text-white dark:*:data-[slot=icon]:fill-zinc-400',
-    'dark:data-hover:bg-white/5 dark:data-hover:*:data-[slot=icon]:fill-white',
-    'dark:data-active:bg-white/5 dark:data-active:*:data-[slot=icon]:fill-white',
-    'dark:data-current:*:data-[slot=icon]:fill-white'
+    'dark:text-white dark:*:data-[slot=icon]:fill-rose-400',
+    'dark:data-hover:bg-white/5 dark:data-hover:*:data-[slot=icon]:fill-white dark:data-hover:text-white',
+    'dark:data-active:bg-white/5 dark:data-active:*:data-[slot=icon]:fill-white dark:data-active:text-white',
+    'dark:data-current:*:data-[slot=icon]:fill-white dark:data-current:text-white'
   )
+
 
   return (
     <span className={clsx(className, 'relative')}>
