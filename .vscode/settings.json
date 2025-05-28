@@ -24,5 +24,8 @@
   "[typescript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
-  "cSpell.language": "en,pt-br"
+  "cSpell.language": "en,pt-br",
+  "cSpell.words": [
+    "faqs"
+  ]
 }
